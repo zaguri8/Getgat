@@ -1,0 +1,27 @@
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+}
+
+.wrapper form input {
+    padding: 8px;
+}
+
+.container {
+    background-color: rgba(0,0,0,0.1);
+    width:50%;
+    height:50%;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 300px;
+    padding: 16px;
+    border-radius: 16px;
+}

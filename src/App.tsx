@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import { child, onValue, push, ref, set } from 'firebase/database';
 import './App.css';
+import { database } from './firebase';
+import Auth from './pages/auth';
 
 function App() {
+
+
+  function saveSomeData() {
+
+    const firstEmail = "nadavavnon@gmail.com"
+
+    // onValue(ref(database, '/users'), (query) => {
+
+    // })
+
+    push(ref(database, '/approvedEmails'), firstEmail)
+
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Auth/>
     </div>
   );
 }
