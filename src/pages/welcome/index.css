@@ -1,0 +1,15 @@
+
+
+.wrapper {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.welcome {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: min(25vw,25vh);
+    min-width: 300px;
+    max-width: 500px;
+    padding: 16px;
+    border-radius: 16px;
+}

@@ -1,16 +1,75 @@
-
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrewcondensed.css);
 
-body {
+body,
+html {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  background-color: #faf2e4;
+  -moz-osx-font-smoothing: grayscale;
   font-family: Open Sans Hebrew;
+  height: 100%;
+}
+
+.page-holder {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: relative;
+  transform: translateY(-50vw);
+  align-items: center;
+}
+
+.header {
+  color: rgb(73, 39, 39);
+  font-weight: bolder;
+}
+
+@keyframes pageImageAnimation {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.page-image {
+  background-size: cover;
+  max-width: 100%;
+  z-index: 1;
+  mask-image: linear-gradient(rgba(0, 0, 0, 0.55), transparent);
+  animation: pageImageAnimation .5s linear;
+}
+
+@media only screen and (min-width:1000px) {
+  h2 {
+    font-size: 50px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  label {
+    font-size: 24px;
+  }
+
+}
+
+* {
+  font-family: Open Sans Hebrew;
+  direction: rtl;
+}
+
+input {
+  direction: ltr;
 }
 
 code {

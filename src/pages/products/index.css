@@ -1,0 +1,34 @@
+#products {
+    background-size: cover;
+}
+
+.products_gallery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.products_gallery img {
+    max-width: 300px;
+    margin: 4px;
+    border: 1px solid white;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+
+.products_gallery div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.products_gallery button {
+    background-color: rgb(98, 135, 82);
+    color:white;
+    border: none;
+    font-size: 24px;
+    border-radius: 4px;
+    padding-inline: 30px;
+}
