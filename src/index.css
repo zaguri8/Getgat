@@ -28,6 +28,9 @@ html {
   color: rgb(73, 39, 39);
   font-weight: bolder;
 }
+h2 {
+  color:rgb(73, 39, 39);
+}
 
 @keyframes pageImageAnimation {
 

@@ -39,24 +39,26 @@ export default () => {
         <h2>המוצרים שלנו</h2>
 
         <div className='products_gallery'>
-            {React.Children.toArray(products.map(product => <div>
+            {React.Children.toArray(products.map(product => <div className='products_wrapper'>
                 <label>{product.name}</label>
-                <label>{product.price} ש"ח</label>
                 <img src={product.photo} />
-                <button onClick={() => {
+                <div className='product_stack_2'>
+                    <label>{product.price} ש"ח</label>
+                    <button onClick={() => {
+                        modal.show(<React.Fragment>
+                            <label>{product.name}</label>
+                            <img className='product_img' src={product.photo} />
+                            <span>כמות</span>
+                            <select ref={selectionRef as any} style={{ width: '50%' }}>
+                                <option value={1}>1</option>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                            </select>
+                            <button onClick={() => makeOrder(product)}>בצע הזמנה</button>
 
-                    modal.show(<React.Fragment>
-                        <label>{product.name}</label>
-                        <img className='product_img' src={product.photo} />
-                        <span>כמות</span>
-                        <select ref={selectionRef as any} style={{ width: '50%' }}>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                        </select>
-                        <button onClick={() => makeOrder(product)}>בצע הזמנה</button>
-                    </React.Fragment>)
-                }}>הזמן</button>
+                        </React.Fragment>)
+                    }}>הזמן</button>
+                </div>
             </div>))}
         </div>
     </div>
