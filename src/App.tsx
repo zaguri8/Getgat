@@ -23,6 +23,7 @@ import Modal from './components/Modal/Modal';
 import { useModal } from '.';
 import Profile from './pages/profile';
 import { arrayBuffer } from 'stream/consumers';
+import Admin from './components/Admin';
 const AuthenticatedPage = ({ Component }: { Component: FunctionComponent<{ user: User, appUser: GetGatUser }> }) => {
   return (function WithAuth() {
     const { isLoading, isUserNotValid, appUser, user } = useFirebase()
@@ -97,6 +98,7 @@ function App() {
           <Route path={'/auth'} element={<Auth />} />
           <Route path={'/products'} element={<AuthenticatedPage Component={Products} />} />
           <Route path={'/profile'} element={<AuthenticatedPage Component={Profile} />} />
+          <Route path={'/admin'} element={<AuthenticatedPage Component={Admin} />} />
           <Route path={'/home'} element={<AuthenticatedPage Component={Home} />} />
           <Route path={'*'} element={<div>עמוד לא נמצא</div>} />
         </Routes>

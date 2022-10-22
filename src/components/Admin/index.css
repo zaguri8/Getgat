@@ -1,0 +1,33 @@
+#orders {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 8px;
+    width: 90%;
+    max-width: 500px;
+    padding: 4px;
+}
+
+
+
+.admin_order_col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid lightgray;
+}
+
+.couple_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 4px;
+}

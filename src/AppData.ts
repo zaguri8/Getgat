@@ -11,6 +11,7 @@ export type GetGatUser = {
     id: string
     name: string
     email: string
+    admin: boolean
     address: string
     phone: string
     birthdate: string
@@ -104,6 +105,21 @@ export class AppData {
             { id: order.id, product: order.product })
             .then((ref) => withKey<Order>(ref, order))
             .catch(logError)
+    }
+
+
+
+    static getAllUserOrders(callback: (orders: Order[]) => void) {
+        return onValue(ref(database, '/orders'), (snapshot) => {
+            let all : Order[] = []
+            snapshot.forEach(child => {
+                const mapped = mapArray<Order>(child)
+                all = [...all,...mapped]
+            })
+            callback(all)
+        }, (e) => {
+            logError(e as FirebaseError)
+        })
     }
 
 

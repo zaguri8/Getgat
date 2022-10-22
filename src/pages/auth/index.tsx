@@ -46,6 +46,7 @@ export default function Auth() {
             name,
             birthdate,
             address,
+            admin: false,
             email,
             phone,
             transactionAmount: "0"
