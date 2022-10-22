@@ -53,6 +53,14 @@
 .confirmation_order {
     row-gap: 8px;
 }
+.product_desc {
+    direction: rtl;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    font-style: italic;
+    margin: 8px;
+    padding: 8px;
+}
 .products_gallery button {
     background-color: rgb(98, 135, 82);
     color: white;

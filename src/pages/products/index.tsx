@@ -63,6 +63,7 @@ export default () => {
                         modal.show(<React.Fragment>
                             <label>{product.name}</label>
                             <img className='product_img' src={product.photo} />
+                            <span className='product_desc'>{product.desc}</span>
                             <span>כמות</span>
                             <select ref={selectionRef as any} style={{ width: '50%' }}>
                                 <option value={1}>1</option>
