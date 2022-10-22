@@ -1,5 +1,5 @@
-import { IconBrandProducthunt, IconBrandSuperhuman, IconCarTurbine, IconDetails, IconHome, IconMan, IconMenu2, IconPassword, IconPhone, IconPhoto, IconPlant, IconTree } from '@tabler/icons'
-import React, { useState } from 'react'
+import { IconHome, IconMan, IconMenu2, IconPassword, IconPhone, IconPlant } from '@tabler/icons'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import logofull from '../../assets/FullLogo.jpg'
 import { useFirebase } from '../../firebase/context'

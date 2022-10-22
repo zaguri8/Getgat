@@ -66,6 +66,7 @@
     margin-block: 8px;
     color: white;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background-color: rgb(98, 135, 82);
 }
 
@@ -79,4 +80,5 @@
     font-size: 16px;
     color: white;
     background-color: rgb(98, 135, 82);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

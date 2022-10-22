@@ -55,6 +55,13 @@ nav {
     }
 }
 
+@media screen and (min-width:400px) {
+    nav {
+        transform: translateY(250px) translateX(-5px);
+    }
+}
+
+
 @media screen and (max-width:400px) {
     nav {
         transform: translateY(250px) translateX(-5px);

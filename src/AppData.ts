@@ -23,6 +23,7 @@ export interface Product {
     id: string
     price: string
     photo: string
+    desc: string
     name: string
 }
 
@@ -88,15 +89,21 @@ export class AppData {
     }
 
 
-    static async getProducts() {
-        return get(ref(database, '/products'))
-            .then(mapArray<Product>)
-            .catch(logError)
+    static getProducts(callback: (p: Product[]) => void) {
+        return onValue(ref(database, '/products'), (snap) => {
+            const mapped = mapArray<Product>(snap)
+            callback(mapped)
+        }, (e) => logError(e as FirebaseError))
     }
 
     static async saveProduct(product: Product) {
         return push(ref(database, '/products'), product)
             .then((ref) => withKey<Product>(ref, product))
+            .catch(logError)
+    }
+
+    static async deleteProduct(product: Product) {
+        return remove(child(ref(database, '/products'), product.id))
             .catch(logError)
     }
 
@@ -111,10 +118,10 @@ export class AppData {
 
     static getAllUserOrders(callback: (orders: Order[]) => void) {
         return onValue(ref(database, '/orders'), (snapshot) => {
-            let all : Order[] = []
+            let all: Order[] = []
             snapshot.forEach(child => {
                 const mapped = mapArray<Order>(child)
-                all = [...all,...mapped]
+                all = [...all, ...mapped]
             })
             callback(all)
         }, (e) => {

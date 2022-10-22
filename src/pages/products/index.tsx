@@ -13,26 +13,41 @@ export default () => {
 
     const context = useFirebase()
     useEffect(() => {
-        (async () => {
-            const results = await AppData.getProducts()
-            if (results instanceof FirebaseError) {
-                alert(results)
-                return
-            }
-            setProducts(results as Product[])
-        })()
+        const unsub = AppData.getProducts(setProducts)
+        return () => unsub()
     }, [])
     const selectionRef = useRef<HTMLSelectElement>()
     const makeOrder = async (p: Product) => {
         modal.close()
+        let q = Number(selectionRef.current!!.value)
         await AppData.saveOrder({
             product: p,
             date: new Date().toLocaleDateString(),
-            quantity: Number(selectionRef.current!!.value),
+            quantity: q,
             user: context.appUser!!,
             id: ''
         })
-        alert(`תודה על הזמנך ${context.appUser!!.name}, ניצור עמך קשר בהקדם!`)
+        modal.show(<div className='confirmation_order'>
+            <h3 style={{margin:'0px'}}>תודה על הזמנך {context.appUser?.name}</h3>
+            <span>ניצור עמך קשר בקרוב לסיום הזמנה !</span>
+            <br/><br/>
+            <img src = {p.photo} className={'product_img'}/>
+            <br/>
+            <span>{q} x {p.name}</span>
+        </div>)
+    }
+    const deleteItem = async (p: Product) => {
+        const deleteOperation = async () => {
+            await AppData.deleteProduct(p)
+            modal.close()
+            alert('מוצר נמחק בהצלחה !')
+        }
+        modal.show(<div>
+            <label>בטוח שתרצה למחוק את 4 {p.name}</label>
+            <br /><br />
+            <button onClick={deleteOperation} className="sure_del">כן מחק מוצר</button>
+        </div>)
+
     }
     return <div className="page-holder" id='products'>
 
@@ -55,9 +70,9 @@ export default () => {
                                 <option value={3}>3</option>
                             </select>
                             <button onClick={() => makeOrder(product)}>בצע הזמנה</button>
-
                         </React.Fragment>)
                     }}>הזמן</button>
+                    {context.appUser?.admin && <React.Fragment><span className='admin_act_label'>פעולות אדמין</span> <button onClick={() => deleteItem(product)} className='delete_prod'>מחק מוצר</button></React.Fragment>}
                 </div>
             </div>))}
         </div>

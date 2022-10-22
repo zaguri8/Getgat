@@ -10,6 +10,38 @@
 }
 
 
+#safe_area {
+    padding: 32px;
+    background-color: #5E5544;
+    margin: 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 500px;
+}
+
+#safe_area input {
+    padding: 4px;
+    direction: rtl;
+}
+
+#safe_area input {
+    padding: 4px;
+}
+
+
+#safe_area button {
+    padding: 8px;
+    cursor: pointer;
+    background-color: rgb(98, 135, 82);
+    margin-block: 16px;
+    font-size: 24px;
+    border: none;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: white;
+}
 
 .admin_order_col {
     display: flex;
@@ -19,8 +51,17 @@
     width: 100%;
     padding: 4px;
     border-radius: 4px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid lightgray;
+}
+
+#safe_area h3 {
+    color: white;
+    font-size: 32px;
+}
+
+#safe_area button:disabled {
+    background-color: gray;
 }
 
 .couple_row {
